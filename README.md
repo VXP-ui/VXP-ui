@@ -9,3 +9,7 @@ one of my most recent scripts im making is a universal script. Loadstrinf will b
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/AC447724/VxpCvxpk/main/LoaderVXP'))()
 --
+
+
+
+ My discords c5xk if youd like to conact me. 
