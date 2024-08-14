@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @VXP-ui-
 
-- I like making scripts and sometimes html code for random projects from roblox and lua.
-- I used to be popular in the blade ball exploiting commuinity, I wasnt big like Bedal or Redz but I madr a script called Vercel V5, currently i still make scripts for games but not blade ball anymore.
+- I like making scripts and sometimes html code for random projects apart roblox and lua.
+- I used to be popular in the blade ball exploiting commuinity, I wasnt big like Bedal or Redz but I made a script called Vercel V5, Currently I still make scripts for games but not blade ball anymore.
 
 one of my most recent scripts im making is a universal script. Loadstrinf will be listed below
 
