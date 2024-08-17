@@ -1,6 +1,5 @@
 Api I use for premium.
 
-Sure, here's a step-by-step tutorial on how to use the provided code and an explanation of the functions:
 
 **Prerequisites:**
 - Node.js and npm installed on your system
