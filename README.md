@@ -1,4 +1,4 @@
-Api I use for my website/scrilt sometimes.
+Api I use for premium.
 
 Sure, here's a step-by-step tutorial on how to use the provided code and an explanation of the functions:
 
