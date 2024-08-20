@@ -1,4 +1,4 @@
-Api I use for premium.
+API V2
 
 
 **Prerequisites:**
