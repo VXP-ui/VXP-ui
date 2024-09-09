@@ -13,8 +13,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 200vh; /* Increased height for scrolling */
+            justify-content: flex-start; /* Align to the top */
+            height: 100vh; /* Set height to full viewport */
             background: linear-gradient(135deg, #000428, #004e92, #00c6ff); /* Gradient from black to blue to light blue */
             color: #f0f0f0;
             overflow-x: hidden;
@@ -28,6 +28,7 @@
             opacity: 0; /* Hidden by default */
             transform: translateY(50px); /* Start slightly below */
             transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for opacity and transform */
+            margin-top: 50px; /* Add some space from the top */
         }
         .visible {
             opacity: 1; /* Fully visible */
