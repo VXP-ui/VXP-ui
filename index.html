@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif; /* Use Roboto font */
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,51 +18,65 @@
             background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWKYhZ8rYHS1tzRBs71iuWKmge665CiOwZsaehAb-oVMi-94uMUr0a44U&s') no-repeat center center fixed;
             background-size: cover;
             color: #f0f0f0;
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 1s forwards; /* Fade-in effect */
         }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* End fully visible */
+            }
+        }
+
         .container {
             text-align: center;
             background: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            transform: translateY(20px); /* Start slightly lower */
+            animation: slideUp 0.5s forwards; /* Slide-up effect */
         }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0); /* End at original position */
+            }
+        }
+
         .discord-button {
-            background-color: transparent; /* Transparent background */
-            color: #00AFF0; /* Text color */
-            border: 2px solid rgba(0, 175, 240, 0.7); /* Semi-transparent border */
+            background-color: transparent;
+            color: #00AFF0;
+            border: 2px solid rgba(0, 175, 240, 0.7);
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
             margin: 10px 0;
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+            transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Smooth transition */
         }
+
         .discord-button:hover {
-            background-color: rgba(0, 175, 240, 0.2); /* Slightly colored on hover */
+            background-color: rgba(0, 175, 240, 0.2);
+            transform: scale(1.05); /* Slightly grow on hover */
         }
+
         .profile-pic {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             margin: 10px 0;
+            animation: pulse 1.5s infinite; /* Pulsing effect */
         }
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1); /* Grow effect */
+            }
         }
-        .social-icons img {
-            width: 30px;
-            height: 30px;
-        }
-        a {
-            color: #00AFF0;
-            text-decoration: none;
-            font-weight: 700; /* Bold for links */
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+
         .status-box {
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
@@ -72,11 +86,53 @@
             align-items: center;
             justify-content: center;
         }
+
         .discord-pic {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             margin-right: 10px;
+        }
+
+        .discord-user {
+            animation: colorChange 2s infinite alternate; /* Color change effect */
+            font-size: 1.2em; /* Slightly larger font size */
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #00AFF0; /* Initial color */
+            }
+            100% {
+                color: #f0f0f0; /* Final color */
+            }
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s; /* Smooth transition for icons */
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1); /* Grow effect on hover */
+        }
+
+        a {
+            color: #00AFF0;
+            text-decoration: none;
+            font-weight: 700; /* Bold for links */
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -96,7 +152,7 @@
 
     <div class="status-box">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRFCJ0uUoLPQN5smi4Q_yAa-W440V0d5uwUTi6D7uTtg&s" alt="Discord Profile Picture" class="discord-pic">
-        <h3>Discord User: c5xk</h3>
+        <h3 class="discord-user">Discord User: c5xk</h3> <!-- Added class for animation -->
     </div>
 
     <div class="social-icons">
