@@ -13,11 +13,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Align to the top */
-            height: 100vh; /* Set height to full viewport */
-            background: linear-gradient(135deg, #000428, #004e92, #00c6ff); /* Gradient from black to blue to light blue */
+            justify-content: center;
+            height: 100vh;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWKYhZ8rYHS1tzRBs71iuWKmge665CiOwZsaehAb-oVMi-94uMUr0a44U&s') no-repeat center center fixed;
+            background-size: cover;
             color: #f0f0f0;
-            overflow-x: hidden;
         }
         .container {
             text-align: center;
@@ -25,25 +25,8 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.8);
-            opacity: 0; /* Hidden by default */
-            transform: translateY(50px); /* Start slightly below */
-            transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for opacity and transform */
-            margin-top: 50px; /* Add some space from the top */
         }
-        .visible {
-            opacity: 1; /* Fully visible */
-            transform: translateY(0); /* Move to original position */
-            animation: jiggle 0.5s ease; /* Add jiggle animation */
-        }
-        @keyframes jiggle {
-            0% { transform: translate(0); }
-            10% { transform: translate(-5px, 0); }
-            20% { transform: translate(5px, 0); }
-            30% { transform: translate(-5px, 0); }
-            40% { transform: translate(5px, 0); }
-            50% { transform: translate(0); }
-        }
-        .button {
+        .discord-button {
             background-color: transparent; /* Transparent background */
             color: #00AFF0; /* Text color */
             border: 2px solid rgba(0, 175, 240, 0.7); /* Semi-transparent border */
@@ -51,11 +34,9 @@
             border-radius: 5px;
             cursor: pointer;
             margin: 10px 0;
-            position: relative;
-            overflow: hidden;
             transition: background-color 0.3s, color 0.3s; /* Smooth transition */
         }
-        .button:hover {
+        .discord-button:hover {
             background-color: rgba(0, 175, 240, 0.2); /* Slightly colored on hover */
         }
         .profile-pic {
@@ -97,29 +78,6 @@
             border-radius: 50%;
             margin-right: 10px;
         }
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-        }
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-        .vibrate {
-            animation: vibrate 0.1s linear;
-        }
-        @keyframes vibrate {
-            0% { transform: translate(0); }
-            25% { transform: translate(-2px, 0); }
-            50% { transform: translate(2px, 0); }
-            75% { transform: translate(-2px, 0); }
-            100% { transform: translate(0); }
-        }
     </style>
 </head>
 <body>
@@ -129,54 +87,11 @@
     Your browser does not support the audio element.
 </audio>
 
-<audio id="button-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
-
-<script>
-    const buttonSound = document.getElementById('button-sound');
-    const container = document.querySelector('.container');
-
-    function playSound(event) {
-        buttonSound.currentTime = 0; // Rewind to start
-        buttonSound.play();
-        
-        // Create ripple effect
-        const ripple = document.createElement('span');
-        const rect = event.currentTarget.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = `${size}px`;
-        ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
-        ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
-        ripple.classList.add('ripple');
-        event.currentTarget.appendChild(ripple);
-        
-        // Add vibration effect
-        event.currentTarget.classList.add('vibrate');
-        setTimeout(() => {
-            event.currentTarget.classList.remove('vibrate');
-        }, 100); // Duration of the vibration
-        
-        // Remove ripple after animation
-        ripple.addEventListener('animationend', () => {
-            ripple.remove();
-        });
-    }
-
-    // Scroll animation
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        if (scrollY > 100) { // Adjust threshold as needed
-            container.classList.add('visible');
-        }
-    });
-</script>
-
 <div class="container">
     <img src="https://i.imgur.com/0j9dKsg.png" alt="Profile Picture" class="profile-pic">
     <h1>VXP-UI</h1>
     <p>Welcome! Most of my socials will be here!</p>
-    <a href="https://github.com/VXP-ui/VXP-ui">
-        <button class="button" onclick="playSound(event)">Click Me</button>
-    </a>
+    <a href="https://github.com/VXP-ui/VXP-ui">Click Me</a>
     <p class="status">currently doing nothing</p>
 
     <div class="status-box">
@@ -196,8 +111,9 @@
         </a>
     </div>
 
+    <!-- Discord Server Link -->
     <a href="https://discord.gg/etVYz8CnsW" target="_blank">
-        <button class="button" onclick="playSound(event)">Join My Discord Server</button>
+        <button class="discord-button">Join My Discord Server</button>
     </a>
 </div>
 
