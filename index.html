@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VxpC5xk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif; /* Use Roboto font */
             margin: 0;
             padding: 0;
             display: flex;
@@ -24,6 +25,32 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+        .mute-button {
+            background-color: transparent; /* Transparent background */
+            color: #00AFF0; /* Text color */
+            border: 2px solid rgba(0, 175, 240, 0.7); /* Semi-transparent border */
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+        .mute-button:hover {
+            background-color: rgba(0, 175, 240, 0.2); /* Slightly colored on hover */
+        }
+        .discord-button {
+            background-color: transparent; /* Transparent background */
+            color: #00AFF0; /* Text color */
+            border: 2px solid rgba(0, 175, 240, 0.7); /* Semi-transparent border */
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+        .discord-button:hover {
+            background-color: rgba(0, 175, 240, 0.2); /* Slightly colored on hover */
         }
         .profile-pic {
             width: 100px;
@@ -44,6 +71,7 @@
         a {
             color: #00AFF0;
             text-decoration: none;
+            font-weight: 700; /* Bold for links */
         }
         a:hover {
             text-decoration: underline;
@@ -66,6 +94,26 @@
     </style>
 </head>
 <body>
+
+<audio id="background-music" autoplay loop>
+    <source id="audio-source" src="https://pfst.cf2.poecdn.net/processed/e8443b238dc88a6649559bfbc720529dfb75c7d50742f16417c5034eafdcecb7" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+<button class="mute-button" id="mute-button">Mute</button>
+
+<script>
+    const backgroundMusic = document.getElementById('background-music');
+    
+    const muteButton = document.getElementById('mute-button');
+    let isMuted = false;
+
+    muteButton.addEventListener('click', () => {
+        isMuted = !isMuted;
+        backgroundMusic.muted = isMuted;
+        muteButton.textContent = isMuted ? 'Unmute' : 'Mute';
+    });
+</script>
 
 <div class="container">
     <img src="https://i.imgur.com/0j9dKsg.png" alt="Profile Picture" class="profile-pic">
@@ -90,6 +138,11 @@
             <img src="https://i.imgur.com/PYisjdt.png" alt="Website">
         </a>
     </div>
+
+    <!-- Discord Server Link -->
+    <a href="https://discord.gg/etVYz8CnsW" target="_blank">
+        <button class="discord-button">Join My Discord Server</button>
+    </a>
 </div>
 
 </body>
